@@ -1,2 +1,0 @@
-class DongminController < ApplicationController
-end
