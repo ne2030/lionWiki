@@ -1,0 +1,36 @@
+<div class="content_new">
+  <div>
+    <span class="post_title"> <%= @post[:title] %> </span> 하위항목
+  </div>
+
+  <div class="content-new-container">
+    <%= form_for @content, url:contents_create_path do |f| %>
+      <div class="content-title">
+        제목: <%= f.text_field :title %>
+      </div>
+
+      <div class="content-post-id" hidden>
+        <%= f.number_field :post_id %>
+      </div>
+
+      <div class="content-text">
+        내용: <%= f.text_area :text %>
+      </div>
+
+      <div class="content-img">
+        이미지: <%= f.file_field :img %>
+      </div>
+
+      <div style="margin-top: 30px;">
+        <%= f.submit "전송"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<style>
+  .post_title {
+    font-weight: bold;
+    font-size: 20px;
+  }
+</style>
