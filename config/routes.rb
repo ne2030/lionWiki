@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'content/edit'
+  get 'content/update'
   get 'main/index'
   get 'post/new'
   get 'post/create'
