@@ -1,2 +1,22 @@
-<h1>Post#detail</h1>
-<p>Find me in app/views/post/detail.html.erb</p>
+
+<div>
+  <h1><strong><%= @posts.title %></strong></h1>
+  <div>
+    <img src = "<%= @posts.img %>">
+  </div>
+</div>
+
+<div>
+  <% @contents.each do |c| %>
+    <h2> <%= c.order %>. <%= c.title %> </h2>
+    <img src = "<%= c.img %>">
+    <p> <%= c.text%> </p>
+  <% end %>
+</div>
+
+<div>
+  <% @comments.each do |c| %>
+    <h1> <%= c.id %>.<%= c.post_id %> </h1>
+    <p> <%= c.text %> </p>
+  <% end %>
+</div>

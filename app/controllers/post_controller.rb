@@ -9,5 +9,8 @@ class PostController < ApplicationController
   end
 
   def detail
+    @posts = Post.find_by(title: "bkh")
+    @contents = Content.all
+    @comments = Comment.all
   end
 end
