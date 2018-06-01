@@ -20,21 +20,24 @@ class ContentsController < ApplicationController
     @content = Content.new(content_params.merge(order: order + 1))
     @content.save
     uploaded_io = params[:content][:img]
-    file_path = Rails.root.join('public/contents', @content[:id].to_s)
+    if uploaded_io
+      file_path = Rails.root.join('public/contents', @content[:id].to_s)
 
-    FileUtils.mkdir_p(file_path) unless File.directory?(file_path)
-    File.open(file_path + uploaded_io.original_filename, 'wb') do |file|
-      file.write(uploaded_io.read)
+      FileUtils.mkdir_p(file_path) unless File.directory?(file_path)
+      File.open(file_path + uploaded_io.original_filename, 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
+      @content[:img] = "/contents/#{@content[:id].to_s}/#{uploaded_io.original_filename}"
+      @content.save
     end
-
-    @content[:img] = "/contents/#{@content[:id].to_s}/#{uploaded_io.original_filename}"
-    @content.save
-
-    redirect_to "/posts/#{postId}"
   end
 
+  redirect_to "/posts/#{postId}"
+end
+
   private
-    def content_params
-      params.require(:content).permit(:title, :post_id, :text)
-    end
+  def content_params
+    params.require(:content).permit(:title, :post_id, :text)
+  end
 end

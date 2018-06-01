@@ -1,22 +1,49 @@
 
 <div>
-  <h1><strong><%= @posts.title %></strong></h1>
+  <h1><strong><%= @post.title %></strong></h1>
   <div>
-    <img src = "<%= @posts.img %>">
+    <img src = "<%= @post.img %>">
   </div>
 </div>
 
 <div>
   <% @contents.each do |c| %>
     <h2> <%= c.order %>. <%= c.title %> </h2>
-    <img src = "<%= c.img %>">
-    <p> <%= c.text%> </p>
+    <img class="content-img" src = "<%= c.img %>">
+    <div class="content-text"> <%= c.text%> </div>
   <% end %>
 </div>
 
 <div>
   <% @comments.each do |c| %>
     <h1> <%= c.id %>.<%= c.post_id %> </h1>
-    <p> <%= c.text %> </p>
+    <div> <%= c.text %> </div>
   <% end %>
 </div>
+
+<style>
+  .cancel-content {
+    color: grey;
+    text-decoration: line-through;
+  }
+
+  .content-img {
+    max-width: 400px;
+  }
+
+  .comment {
+    font-size: 0.8em;
+    vertical-align: super;
+  }
+</style>
+
+<script type="text/javascript" charset="utf-8">
+  window.onload = function () {
+    var contentTextEls = document.getElementsByClassName('content-text');
+    Array.prototype.map.call(contentTextEls, el => {
+        el.innerHTML = el.innerHTML
+            .replace(/([\w가-힇]+)\[\[(.+)\]\]/, '<a target="_blank" href=$2>$1</a>')
+            .replace(/\{\{(.+)\}\}/, '<span class=cancel-content>$1</span>')
+    });
+  }
+</script>
