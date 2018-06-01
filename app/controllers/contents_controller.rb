@@ -31,10 +31,8 @@ class ContentsController < ApplicationController
       @content[:img] = "/contents/#{@content[:id].to_s}/#{uploaded_io.original_filename}"
       @content.save
     end
+    redirect_to "/posts/#{postId}"
   end
-
-  redirect_to "/posts/#{postId}"
-end
 
   private
   def content_params
