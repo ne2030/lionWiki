@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  patch 'contents/:id' => 'contents#edit'
+  patch 'contents/:id/edit' => 'contents#edit'
   get 'contents/:id' => 'contents#update'
-  get 'contents/:postId/new' => 'contents#new'
+  get 'contents/:id/new' => 'contents#new'
+  get 'contents/:id/edit' => 'contents#edit'
   post 'contents/create'
   get 'main/index'
   get 'post/new'
