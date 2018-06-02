@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'contents/:postId/new' => 'contents#new'
   post 'contents/create'
   get 'main/index'
-  get 'post/new'
+  get 'post/new' => 'post#detail'
   get 'post/create'
   get 'post/search'
   get 'posts/:id' => 'post#detail'
