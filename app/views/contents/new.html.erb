@@ -1,12 +1,13 @@
 <div class="content_new">
   <div>
-    <span class="post_title"> <%= @post[:title] %> </span> 하위항목
+    <span class="post_title"> <%= @post[:title] %> </span> 하위항목 추가
   </div>
 
   <div class="content-new-container">
     <%= form_for @content, url:contents_create_path do |f| %>
+
       <div class="content-title">
-        제목: <%= f.text_field :title %>
+        제목 <%= f.text_field :title, class: "title-text-field" %>
       </div>
 
       <div class="content-post-id" hidden>
@@ -14,23 +15,71 @@
       </div>
 
       <div class="content-text">
-        내용: <%= f.text_area :text %>
+        내용 <%= f.text_area :text, class: "content-text-area" %>
       </div>
 
       <div class="content-img">
-        이미지: <%= f.file_field :img %>
+        이미지 <%= f.file_field :img, class: "file-field" %>
       </div>
 
       <div style="margin-top: 30px;">
-        <%= f.submit "전송"%>
+        <%= f.submit "전송", class: "submit"%>
       </div>
     <% end %>
   </div>
 </div>
 
 <style>
+  @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+  /*Posttitle CSS*/
+  .content_new {
+    width : 100%;
+    height : 80%;
+  }
+  .content-new-container{
+    width : 100%;
+    height : 80%;
+  }
   .post_title {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 50px;
   }
+
+  /*Content title CSS*/
+  .content-title {
+    width : 100%;
+    border-bottom: 1px solid black;
+    margin : 5px;
+  }
+
+  .title-text-field{
+    background-color: lightgray;
+    width : 100%;
+  }
+
+  /*Content text CSS*/
+  .content-text {
+    width : 100%;
+    height : 80%;
+    border-bottom : 1px solid black;
+    margin : 5px;
+  }
+
+  .content-text-area{
+    background-color : lightgrey;
+    width: 100%;
+    height: 100px;
+  }
+
+  /*img field CSS*/
+  .content-img{
+    margin : 5px;
+    border-bottom : 1px solid black;
+    margin: 5px;
+  }
+
+  file-field{
+
+  }
+
 </style>

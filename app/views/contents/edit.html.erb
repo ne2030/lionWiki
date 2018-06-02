@@ -1,0 +1,24 @@
+#edit
+
+<form action = '/contents/update' >
+  <input name = "id" type = "hidden"  value  = <%= @content.id %></input><br>
+  <input class = "edit-title" name = 'input_title' type = 'text' value = <%= @content.title %>><br>
+  <input class = "edit-content" name = 'input_content' type = 'text' value = <%= @content.text %>><br>
+  <input type = 'submit'>
+</form>
+
+<style>
+  .edit-title {
+    width : 100%;
+    border-bottom: 1px solid black;
+    background-color : lightgray;
+    margin : 5px;
+  }
+  .edit-content{
+    width : 100%;
+    height : 100px;
+    border-bottom : 1px solid black;
+    margin : 5px;
+    background-color : lightgray;
+  }
+</style>
