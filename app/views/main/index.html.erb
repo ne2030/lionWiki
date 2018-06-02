@@ -1,7 +1,7 @@
 
 <div class="find">
-    
-    <%= form_tag(controller: "post", action: "search",method:"get") do %>
+
+    <%= form_tag(controller: "post", action: "search") do %>
         <%= label_tag(:search, "제목을 검색합니다") %>
         <%= text_field_tag(:search) %>
         <%= submit_tag("검색") %>
@@ -10,8 +10,6 @@
     <%= link_to "생성", post_new_path %>
    
 </div>
-
-
 
 <style>
     .find{

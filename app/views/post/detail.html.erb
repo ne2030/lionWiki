@@ -2,9 +2,11 @@
 <div class = "post-main">
   <h1><strong><%= @post.title %></strong></h1>
   <div>
-    <img src = "<%= @post.img %>">
+    <img class="post-img" src = "<%= @post.img %>">
   </div>
 </div>
+
+<%= link_to "하위항목 생성", "/contents/#{@post[:id]}/new" %>
 
 <div class = "post-content">
   <% @contents.each do |c| %>
@@ -27,6 +29,10 @@
   }
 
   .content-img {
+    max-width: 400px;
+  }
+
+  .post-img {
     max-width: 400px;
   }
 
