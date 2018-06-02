@@ -7,7 +7,7 @@ class ContentsController < ApplicationController
 
   def new
     @content = Content.new
-    postId = params[:postId]
+    postId = params[:id]
 
     @content["post_id"] = postId
     @post = Post.where(id: postId).last
