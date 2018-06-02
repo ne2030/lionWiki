@@ -19,9 +19,14 @@ class ContentsController < ApplicationController
 
   def create
     postId = content_params[:post_id]
-    order = Content.order(:order).last["order"]
+    @prevContent = Content.order(:order).where(post_id: postId).last["order"]
+    if @prevContent
+      order = @prevContent + 1
+    else
+      order = 0
+    end
 
-    @content = Content.new(content_params.merge(order: order + 1))
+    @content = Content.new(content_params.merge(order: order))
     @content.save
     uploaded_io = params[:content][:img]
     if uploaded_io
