@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'main/index'
   get 'post/new' => 'post#detail'
   get 'post/create'
-  get 'post/search'
+  post 'post/search'
   get 'posts/:id' => 'post#detail'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,2 +1,27 @@
-<h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
+
+<div class="find">
+    
+    <%= form_tag(controller: "post", action: "search",method:"get") do %>
+        <%= label_tag(:search, "제목을 검색합니다") %>
+        <%= text_field_tag(:search) %>
+        <%= submit_tag("검색") %>
+    <% end %>
+    
+    <%= link_to "생성", post_new_path %>
+   
+</div>
+
+
+
+<style>
+    .find{
+      
+        width: 33.3%;
+        
+        margin : 33.3% 33.3% 33.3% 33.3%;
+       
+        text-align: center;
+        
+    }
+ 
+</style>
