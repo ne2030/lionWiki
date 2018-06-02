@@ -19,9 +19,10 @@ class ContentsController < ApplicationController
 
   def create
     postId = content_params[:post_id]
-    @prevContent = Content.order(:order).where(post_id: postId).last["order"]
+    @prevContent = Content.order(:order).where(post_id: postId).last
+
     if @prevContent
-      order = @prevContent + 1
+      order = @prevContent["order"] + 1
     else
       order = 0
     end
