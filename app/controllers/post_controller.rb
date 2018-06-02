@@ -34,7 +34,8 @@ class PostController < ApplicationController
   end
 
   def detail
-    @posts = Post.find_by(title: "bkh")
-    @contents = Content.all
-    @comments = Comment.all
+    postId = params[:id]
+    @post = Post.where(id: postId)[0]
+    @contents = Content.where(post_id: postId)
+    @comments = Comment.where(post_id: postId)
   end
