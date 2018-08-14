@@ -5,7 +5,7 @@
         <%= text_field_tag :search ,"", class: 'search_bar', autocomplete: 'off' %>
     <% end %>
     
-    <%= link_to "생성", post_new_path %>
+    <%= link_to "생성", post_new_path,  :class => "forming" %>
    
 </div>
 
@@ -23,14 +23,22 @@
     .search_bar:focus {
       outline: 0;
     }
+
     .find{
-      
         width: 33.3%;
-        
         margin : 33.3% 33.3% 33.3% 33.3%;
-       
         text-align: center;
-        
+    }
+
+    .forming{
+      background-color: #ffef96; /* Green */
+      border: none;
+      color: black;
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 8px;
     }
  
 </style>
