@@ -4,9 +4,9 @@ class ContentsController < ApplicationController
   end
 
   def update
-    @content = Content.find(params[:id])
+    @content = Content.find(params[:content_id])
     @content.update_attributes(title: params[:input_title], text: params[:input_content])
-    # redirect_to "/posts/#{params[:post_id]}"
+    redirect_to "/posts/#{@content[:post_id]}"
   end
 
   def new
