@@ -1,8 +1,9 @@
-
+<img src = "그림1.png">
 <div class="find">
 
     <%= form_tag(controller: "post", action: "search") do %>
         <%= text_field_tag :search ,"", class: 'search_bar', autocomplete: 'off' %>
+        <img src = "search_icon.png">
     <% end %>
     
     <%= link_to "생성", post_new_path,  :class => "forming" %>
