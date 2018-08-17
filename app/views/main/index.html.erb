@@ -16,7 +16,7 @@
 
     <!-- Create Button -->
     <div class = "create_button">
-      <%= link_to "생성", post_new_path,  :class => "forming" %>
+      <%= link_to "Create", post_new_path,  :class => "forming" %>
     </div>
 
   </div>
@@ -55,6 +55,9 @@
   }
 
   .main_title {
+    position: absolute;
+    left: 370px;
+    top: 50px;
     color: white;
     text-align: center;
     font-weight: bold;
@@ -63,10 +66,14 @@
   }
 
   .search_bar {
+    position: absolute;
+    left: 585px;
+    top: 250px;
     background-color: rgba(255, 255, 255, 0.2);
     border: 0px;
     border-bottom: 1px solid #f4a742;
     color: white;
+    font-align: center;
     font-size: 2rem;
   }
 
@@ -85,14 +92,17 @@
   }
 
   .forming{
-    background-color: #ffef96; /* Green */
+    position: absolute;
+    left: 710px;
+    top: 300px;
+    background-color: white;
     border: none;
     color: black;
-    padding: 10px 15px;
+    padding: 6px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .makers {
